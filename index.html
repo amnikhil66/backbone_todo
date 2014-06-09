@@ -1,0 +1,52 @@
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>TODO</title>
+		
+		<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+		<script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.6.0/underscore-min.js"></script>
+		<script src="//cdnjs.cloudflare.com/ajax/libs/backbone.js/1.1.2/backbone-min.js"></script>
+		<script src="//cdnjs.cloudflare.com/ajax/libs/backbone-localstorage.js/1.1.7/backbone.localStorage-min.js"></script>
+	</head>
+	<body>
+		<header>
+			<h1>Backbone TODO</h1>
+		</header>
+		<section id="main"></section>
+
+		<script type="text/template" id="todo_input_template">
+			<section id="tasks_main">
+				<div id="task_container">
+					<input placeholder="What's on your mind!!" name="task">
+				</div>
+			</section>
+		</script>
+		<script type="text/template" id="todos_template">
+			<% if(!!todos.length){ %>
+				<ul id="tasks_container">
+				<% todos.forEach(function(todo){ %>
+					<li>
+						<span class="task-title"><%= todo.task %></span>
+						<input class="task-completed" type="checkbox" 
+							name="task_completed" value="<%= todo.id %>" <% if(todo.completed){ %> checked <% } %>>
+					</li>
+				<% }); %>
+				</ul>
+			<% } %>
+		</script>
+		<script type="text/template" id="todo_template">
+			<li>
+				<span class="task-title"><%= todo.task %></span>
+				<input class="task-completed" type="checkbox" name="task_completed" value="<%= todo.id %>">
+			</li>
+		</script>
+		
+
+		<script src="js/app/models/todo.js"></script>
+		<script src="js/app/collections/todos.js"></script>
+		<script src="js/app/views/todo.js"></script>
+		<script src="js/app/views/todo_toggle.js"></script>
+		<script src="js/app/routers/routes.js"></script>
+		<script src="js/app/app.js"></script>
+	</body>
+</html>
