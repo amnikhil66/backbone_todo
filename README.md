@@ -1,4 +1,4 @@
 backbone_todo
 =============
 
-Backbone Todo
+Backbone TodoMVC
