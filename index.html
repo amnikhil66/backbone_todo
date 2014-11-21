@@ -12,18 +12,34 @@
 		<header>
 			<h1>Backbone TODO</h1>
 		</header>
+		<nav class="task-options">
+			<ul>
+				<li>
+					<a href="#">All</a>
+				</li>
+				<li>
+					<a href="#finished_tasks">Finished</a>
+				</li>
+				<li>
+					<a href="#incomplete_tasks">Incomplete</a>
+				</li>
+			</ul>
+		</nav>
+		<!-- App Container -->
 		<section id="main"></section>
 
+		<!-- Tasks Outer Container Template -->
 		<script type="text/template" id="todo_input_template">
 			<section id="tasks_main">
 				<div id="task_container">
 					<input placeholder="What's on your mind!!" name="task">
 				</div>
+				<ul id="tasks_container"></ul>
 			</section>
 		</script>
+		<!-- Multiple Tasks Template -->
 		<script type="text/template" id="todos_template">
 			<% if(!!todos.length){ %>
-				<ul id="tasks_container">
 				<% todos.forEach(function(todo){ %>
 					<li>
 						<span class="task-title"><%= todo.task %></span>
@@ -31,9 +47,9 @@
 							name="task_completed" value="<%= todo.id %>" <% if(todo.completed){ %> checked <% } %>>
 					</li>
 				<% }); %>
-				</ul>
 			<% } %>
 		</script>
+		<!-- Single Task Template -->
 		<script type="text/template" id="todo_template">
 			<li>
 				<span class="task-title"><%= todo.task %></span>

@@ -1,3 +1,5 @@
+// View
+//
 var TodoView = Backbone.View.extend({
 	el: "#main",
 
@@ -22,7 +24,7 @@ var TodoView = Backbone.View.extend({
 
 	render: function(){
 		this.$el.append(this.todoInputTemplate());
-		this.$el.find("#tasks_main").append(this.todosTemplate({
+		this.$el.find("#tasks_main #tasks_container").append(this.todosTemplate({
 			todos: this.collection.toJSON()
 		}));
 
